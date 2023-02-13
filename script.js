@@ -3,7 +3,7 @@ var generateBtn = document.querySelector("#generate");
 var lowercase
 var uppercase
 var numbers
-var specialCharacters
+var specialCharacters 
 
 // Write password to the #password input
 function writePassword() {
@@ -11,7 +11,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 function generatePassword() { 
@@ -29,17 +28,35 @@ function generatePassword() {
 
     for (let i = 0; i < passwordLength; i++) {
       generatedPassword += passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)]
-    }
-
-    return generatedPassword; // sends a string to writePassword function
+    } return generatedPassword; // sends a string to writePassword function
   }
+
   else { // Returns a try again message instead of a password if the user gave an invalid length
     return "Please check that you picked a number between 8 and 128 and try again.";
   }
 } 
 
-function generateCharacters() {
-    return "ABCabc123!@#" //placeholder to test if generatePassword function returns string to writePassword
+function generateCharacters() {  // Combines variables to get character list. This function is called by and returned to the generatePassword function
+  var passwordCha = ""
+   if (lowercase) {
+     passwordCha += "abcdefghijklmnopqrstuvwxyz"
+   }
+   if (uppercase) {
+     passwordCha += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+   }
+   if (numbers) {
+     passwordCha += "0123456789"
+   }
+   if (specialCharacters) {
+     passwordCha += "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+   }
+   if (!lowercase && !uppercase && !numbers && !specialCharacters) {  // Stops function and warns user they didn't select any character types
+     alert("No character types selected. Please try again.")
+   }
+
+   if (lowercase || uppercase || numbers || specialCharacters) { // Sends string with user desired characters only if at least one character type selected
+     return passwordCha;
+   }
 }
 
 // Add event listener to generate button
