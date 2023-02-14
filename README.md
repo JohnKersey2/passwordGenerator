@@ -10,7 +10,7 @@ For this task, I was to modify starter code to create a password generate that a
 
 ## Link to Deployed Application
 
-[John Kersey's deployed application](reddit.com)
+[John Kersey's deployed application](https://johnkersey2.github.io/passwordGenerator/)
 
 ## Screenshot of Application
 
